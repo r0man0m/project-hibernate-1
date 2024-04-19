@@ -56,7 +56,6 @@ public class PlayerRepositoryDB implements IPlayerRepository {
     public Player save(Player player) {
         try(Session session = sessionFactory.openSession()) {
             Transaction tx = session.beginTransaction();
-            //session.save(player);
             session.saveOrUpdate(player);
             tx.commit();
             return player;
